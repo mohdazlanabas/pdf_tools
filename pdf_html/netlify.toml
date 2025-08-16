@@ -1,0 +1,28 @@
+[build]
+  command = "echo 'Using prebuilt dist/'"
+  publish = "dist"
+
+# Security and privacy headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Robots-Tag = "noindex, noimageindex, nofollow"
+
+# Prevent caching of sensitive images
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Pragma = "no-cache"
+
+[[headers]]
+  for = "/docs/*"
+  [headers.values]
+    Cache-Control = "no-store, no-cache, must-revalidate"
+    Pragma = "no-cache"
+
+

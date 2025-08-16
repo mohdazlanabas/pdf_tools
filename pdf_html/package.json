@@ -1,0 +1,30 @@
+{
+  "name": "pdf_html",
+  "version": "1.0.0",
+  "description": "Static image-based PDF viewer site (no watermark) with slicing and anti-copy protections.",
+  "main": "index.js",
+  "scripts": {
+    "build:viewer": "cd viewer && npm run build",
+    "build:site": "tsx builder/build.ts",
+    "build": "npm run build:viewer && npm run build:site",
+    "serve": "npx http-server dist -p 8080 -a 127.0.0.1 -c-1",
+    "netlify:init": "npx --yes netlify-cli@latest init --manual --force --name pdf-html-viewer",
+    "netlify:deploy": "npx --yes netlify-cli@latest deploy --prod --dir=dist --message 'Deploy dist'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "execa": "^9.6.0",
+    "glob": "^11.0.3",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "jimp": "^1.6.0",
+    "sharp": "^0.34.3"
+  }
+}

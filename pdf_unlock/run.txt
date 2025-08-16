@@ -1,0 +1,4 @@
+
+python unlock_pdf_cli.py locked.pdf -o unlocked.pdf -p "1234"
+
+
